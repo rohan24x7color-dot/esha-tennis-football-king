@@ -27,6 +27,25 @@
   }
   .wrap{max-width:640px;margin:0 auto;padding:0 24px;}
 
+  .ticker{
+    background:var(--bg-card);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:10px 0;
+  }
+  .ticker-track{
+    display:inline-block;
+    animation:scroll-left 18s linear infinite;
+    font-size:12px;color:var(--text-dim);letter-spacing:.02em;
+  }
+  .ticker-track span{margin-right:32px;}
+  .ticker-track .live{color:var(--gold);font-weight:600;}
+  @keyframes scroll-left{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+
   .status{
     display:flex;align-items:center;justify-content:center;gap:8px;
     padding:28px 0 8px;font-size:13px;color:var(--text-dim);
@@ -61,18 +80,22 @@
     font-weight:700;font-size:19px;
     padding:20px 44px;border-radius:12px;
     text-decoration:none;
-    animation:glow 2.2s ease-in-out infinite;
+    animation:glow 2.2s ease-in-out infinite, bounce 2.2s ease-in-out infinite;
     transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s ease,filter .2s ease;
   }
   @keyframes glow{
     0%,100%{box-shadow:0 4px 16px rgba(217,164,65,.32);}
     50%{box-shadow:0 8px 30px rgba(217,164,65,.62);}
   }
+  @keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-4px);}
+  }
   .cta:hover{
     transform:translateY(-5px) scale(1.07);
     box-shadow:0 16px 36px rgba(217,164,65,.65);
     filter:brightness(1.1);
-    animation-play-state:paused;
+    animation-play-state:paused, paused;
   }
   .cta:active{
     transform:translateY(-2px) scale(1.02);
@@ -115,6 +138,21 @@
 </head>
 <body>
 
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="live">🎾 LIVE</span>
+    <span>Wimbledon updates</span>
+    <span>⚽ ISL Match Tonight 7:30 PM</span>
+    <span>🎾 ATP Rankings Updated</span>
+    <span>⚽ Champions League Draw Out</span>
+    <span class="live">🎾 LIVE</span>
+    <span>Wimbledon updates</span>
+    <span>⚽ ISL Match Tonight 7:30 PM</span>
+    <span>🎾 ATP Rankings Updated</span>
+    <span>⚽ Champions League Draw Out</span>
+  </div>
+</div>
+
 <div class="wrap">
 
   <div class="status"><span class="dot"></span> Channel live and active</div>
@@ -126,7 +164,7 @@
     <p class="sub">Tennis & football tips, predictions and match updates</p>
 
     <a class="cta" href="https://t.me/+5aHhln-JWQcxZGVl" target="_blank" rel="noopener">
-      Join Telegram Channel
+      ✈️ Join Telegram Channel
     </a>
     <p class="microcopy">Free to join &middot; No charges &middot; Instant access</p>
   </div>
