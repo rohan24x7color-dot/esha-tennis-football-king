@@ -56,12 +56,27 @@
 
   .cta{
     display:inline-flex;align-items:center;gap:10px;
-    background:var(--gold);color:#1B1300;
+    background:linear-gradient(135deg,#F0C266,var(--gold));
+    color:#1B1300;
     font-weight:600;font-size:16px;
     padding:16px 32px;border-radius:10px;
-    text-decoration:none;transition:transform .15s ease;
+    text-decoration:none;
+    animation:glow 2.4s ease-in-out infinite;
+    transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;
   }
-  .cta:hover{transform:translateY(-2px);}
+  @keyframes glow{
+    0%,100%{box-shadow:0 4px 14px rgba(217,164,65,.28);}
+    50%{box-shadow:0 6px 22px rgba(217,164,65,.5);}
+  }
+  .cta:hover{
+    transform:translateY(-3px) scale(1.03);
+    box-shadow:0 10px 24px rgba(217,164,65,.55);
+    filter:brightness(1.06);
+    animation-play-state:paused;
+  }
+  .cta:active{
+    transform:translateY(-1px) scale(1.01);
+  }
   .microcopy{
     margin-top:14px;font-size:12px;color:var(--text-dim);
   }
@@ -105,6 +120,7 @@
   <div class="status"><span class="dot"></span> Channel live and active</div>
 
   <div class="hero">
+    <!-- Replace your-photo.jpg with your own image filename after uploading it -->
     <img class="avatar" src="your-photo.jpg" alt="ESHA TENNIS FOOTBALL KING">
     <div class="badge">Official Telegram Channel</div>
     <h1>ESHA TENNIS FOOTBALL KING</h1>
