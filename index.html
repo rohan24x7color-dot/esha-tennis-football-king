@@ -19,11 +19,11 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1482161257000253');
+fbq('init', '1048734704717628');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1482161257000253&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id=1048734704717628&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
@@ -182,7 +182,7 @@ src="https://www.facebook.com/tr?id=1482161257000253&ev=PageView&noscript=1"
     <h1>SAKSHI TENNIS QUEEN</h1>
     <p class="sub">Tennis & football tips, predictions and match updates</p>
 
-    <a class="cta" href="https://t.me/+5aHhln-JWQcxZGVl" target="_blank" rel="noopener">
+    <a class="cta" id="cta-hero" href="https://t.me/+5aHhln-JWQcxZGVl" target="_blank" rel="noopener" onclick="trackSubscribeClick('hero')">
       ✈️ Join Telegram Channel
     </a>
     <p class="microcopy">Free to join &middot; No charges &middot; Instant access</p>
@@ -216,13 +216,25 @@ src="https://www.facebook.com/tr?id=1482161257000253&ev=PageView&noscript=1"
   </div>
 
   <footer>
-    <a class="cta" href="https://t.me/+5aHhln-JWQcxZGVl" target="_blank" rel="noopener">
+    <a class="cta" id="cta-footer" href="https://t.me/+5aHhln-JWQcxZGVl" target="_blank" rel="noopener" onclick="trackSubscribeClick('footer')">
       Join Now
     </a>
     <p>&copy; 2026 SAKSHI TENNIS QUEEN</p>
   </footer>
 
 </div>
+
+<script>
+  // Fires a Meta Pixel event whenever a "Join Telegram" button is clicked.
+  // Uses 'Lead' (a standard Meta event) so it shows up in Ads Manager reporting,
+  // plus a custom 'SubscribeClick' event tagged with which button was pressed.
+  function trackSubscribeClick(location){
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead', { content_name: 'Telegram Subscribe', button_location: location });
+      fbq('trackCustom', 'SubscribeClick', { button_location: location });
+    }
+  }
+</script>
 
 </body>
 </html>
